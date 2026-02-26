@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD for sales data'
+define service Zsd_sales {
+  expose ZI_CDS_SALE;
+}

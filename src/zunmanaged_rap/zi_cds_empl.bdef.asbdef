@@ -1,0 +1,50 @@
+unmanaged implementation in class zbp_i_cds_empl unique;
+strict ( 2 );
+with draft;
+
+define behavior for zi_cds_empl alias empl
+draft table zdrft_empl
+lock master total etag ChangedDateTime
+authorization master ( instance )
+//late numbering
+//lock master
+//authorization master ( instance )
+etag master ChangedDateTime
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) EmpId, EmpResg;
+  action ( features : instance ) SetResigned result [1] $self;
+  action ( features : instance ) UndoResigned result [1] $self;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  determination setdate on modify { create; }
+}
+
+
+
+//unmanaged implementation in class zbp_i_cds_empl unique;
+////with draft;
+//strict ( 2 );
+//
+//
+//define behavior for zi_cds_empl alias empl
+////late numbering
+//lock master
+//authorization master ( instance )
+////etag master ChangedDateTime
+//{
+//  create ( authorization : global );
+//  update;
+//  delete;
+//  field ( readonly ) EmpId, EmpResg;
+//  action ( features : instance ) SetResigned result [1] $self;
+//  action ( features : instance ) UndoResigned result [1] $self;
+//
+//}

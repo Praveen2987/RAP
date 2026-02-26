@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for employee details'
+define service Zsd_empl_data {
+  expose zi_cds_empl;
+}

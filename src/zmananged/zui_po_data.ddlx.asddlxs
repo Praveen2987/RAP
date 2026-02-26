@@ -1,0 +1,125 @@
+@Metadata.layer: #CUSTOMER
+
+
+@UI.headerInfo: {
+    typeName: 'Purchase Order',
+    typeNamePlural: 'Purchase Orders',
+//    typeImageUrl: '',
+//    imageUrl: '',
+    title: {
+        type: #STANDARD,
+        label: 'Purchase Order No'
+//        iconUrl: '',
+//        criticality: '',
+//        criticalityRepresentation: #WITHOUT_ICON,
+//        value: 'Ebeln'
+//        valueQualifier: '',
+//        targetElement: '',
+//        url: ''
+//    },
+//    description: {
+//        type: #STANDARD,
+//        label: 'Purchase Order NO'
+//        iconUrl: '',
+//        criticality: '',
+//        criticalityRepresentation: #WITHOUT_ICON,
+//        value: 'Ebeln'
+//        valueQualifier: '',
+//        targetElement: '',
+//        url: ''
+    }
+}
+annotate view zi_po_data with
+{
+
+  @UI.facet: [{
+      id: 'Ebeln',
+      purpose: #STANDARD,
+  //    parentId: '',
+      position:10 ,
+      label: 'Purchase Order',
+      type: #IDENTIFICATION_REFERENCE
+  }]
+
+
+  @UI.lineItem: [{
+      position: 10 ,
+      importance :#HIGH,
+      type: #STANDARD,
+      label: 'Purchase Order Num' }]
+
+  @UI.identification: [{
+      position: 10,
+      type: #STANDARD,
+      label: 'Purchase Order Num'
+  //      value: ''
+  }]
+
+@UI.selectionField: [{
+//    qualifier: '',
+    position: 10
+//    exclude: true,
+//    element: ''
+}]
+
+@UI.dataPoint:{ title:'Purchase Order', qualifier: 'HD' } 
+  Ebeln;
+
+
+  @UI.lineItem: [{
+      position: 20 ,
+      type: #STANDARD,
+      importance :#HIGH,
+      label: 'Company Code'
+       }]
+
+  @UI.identification: [{
+      position: 20,
+      type: #STANDARD,
+      label: 'Company Code'
+  //      value: ''
+  }]
+
+  Bukrs;
+
+
+  @UI.lineItem: [{
+      position: 30 ,
+      importance :#LOW,
+      type: #STANDARD,
+      label: 'Date' }]
+
+
+  @UI.identification: [{
+     position: 30,
+     type: #STANDARD,
+     label: 'Date'
+  //      value: ''
+  }]
+  Aedat;
+
+  @UI.lineItem: [{
+      position: 40 ,
+      type: #STANDARD,
+      importance :#HIGH,
+      label: 'Customer' }]
+
+
+  @UI.identification: [{
+   position: 40,
+   type: #STANDARD,
+   label: 'Customer'
+  //      value: ''
+  }]
+  Kunnr;
+
+
+  @UI.lineItem: [{
+      position: 50,
+      type: #STANDARD,
+      importance :#HIGH,
+      label: 'Phone No' }]
+
+phone;
+
+}

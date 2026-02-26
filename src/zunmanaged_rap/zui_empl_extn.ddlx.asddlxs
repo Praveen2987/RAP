@@ -1,0 +1,123 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: {
+  typeName:       'Sales Data',
+  typeNamePlural: 'Sales App'
+
+  }
+
+
+annotate view zi_cds_empl with
+{
+
+
+  @UI.facet: [{
+      id: 'Identification',
+      purpose: #STANDARD,
+      importance: #HIGH,
+      label: 'Sales App',
+      type: #IDENTIFICATION_REFERENCE   }]
+
+  //  @UI.identification: [ {
+  //  position: 60,
+  //  type : #FOR_ACTION ,dataAction: 'SetResigned' , label: 'SetResigned',
+  //  type : #FOR_ACTION ,dataAction: ' UndoResigned ' , label: 'SetResigned'
+  //  } ]
+
+  //  @UI.lineItem: [{
+  //       position: 10 ,
+  //       importance :#HIGH,
+  //       type: #STANDARD,
+  //       label: 'Employee Id' }]
+  //
+  //  @UI.identification: [
+  //
+  //  {
+  //  position: 10,
+  //  label: 'Employee Id' }
+  //
+  // {  type : #FOR_ACTION , dataAction: 'SetResigned' , label: 'SetResigned' },
+  //    type : #FOR_ACTION , dataAction: ' UndoResigned ' , label: 'SetResigned'
+  //
+  // ]
+
+  @UI.lineItem: [{
+       position: 10 ,
+       importance :#HIGH,
+       type: #STANDARD,
+       label: 'Employee Id' }]
+
+  @UI.identification: [{ position: 10 ,
+                         label: 'Employee Id' }]
+
+  EmpId;
+
+  @UI.lineItem: [{
+     position: 20 ,
+     importance :#HIGH,
+     type: #STANDARD,
+     label: 'Employee Name' }]
+
+  @UI.identification: [ {
+  position: 20,
+  label: 'Employee Name'
+
+  } ]
+  EmpName;
+
+
+
+  @UI.lineItem: [{
+     position: 30 ,
+     importance :#HIGH,
+     type: #STANDARD,
+     label: 'Employee Desig' }]
+
+  @UI.identification: [ {
+  position: 30,
+  label: 'Employee Desig'
+  } ]
+
+  EmpDesg;
+
+
+  @UI.lineItem: [{
+     position: 40 ,
+     importance :#HIGH,
+     type: #STANDARD,
+     label: 'Employee Phone No' }]
+
+  @UI.identification: [ {
+  position: 40,
+  label: 'Employee Phone No'
+  } ]
+
+
+
+  EmpPhne;
+
+  @UI.lineItem: [{
+   position: 50 ,
+   importance :#HIGH,
+   type: #STANDARD,
+   label: 'Employee Resg' },
+   {  type: #FOR_ACTION , dataAction: 'SetResigned'  , label: 'SetResigned' },
+   {  type: #FOR_ACTION , dataAction: 'UndoResigned'  , label: 'UndoResigned' }
+   ]
+
+  @UI.identification: [ {
+  position: 50,
+  label: 'Employee Resg',
+  importance: #HIGH },
+  {  type: #FOR_ACTION , dataAction: 'SetResigned'  , label: 'SetResigned' },
+  {  type: #FOR_ACTION , dataAction: 'UndoResigned'  , label: 'UndoResigned' }
+   ]
+
+  EmpResg;
+
+
+
+  //  CreatedDateTime;
+  //  ChangedDateTime;
+  //       LocalLastChangedBy
+}

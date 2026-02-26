@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for virtual element'
+define service Zsb_vir_phone {
+  expose zcds_vir_abap;
+}

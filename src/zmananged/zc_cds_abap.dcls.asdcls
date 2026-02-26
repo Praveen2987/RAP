@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_CDS_ABAP'
+@MappingRole: true
+define role ZC_CDS_ABAP {
+  grant select on ZC_CDS_ABAP
+  where INHERITING CONDITIONS FROM ENTITY ZCDS_ABAP REPLACING { ROOT WITH _BaseEntity };
+}

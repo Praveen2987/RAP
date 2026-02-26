@@ -1,0 +1,15 @@
+unmanaged implementation in class zbp_i_cds_sale unique;
+strict ( 2 );
+
+define behavior for ZI_CDS_SALE alias sale
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>!
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Vbeln, soclosed;
+  action ( features : instance ) SetClosed result [1] $self;
+}

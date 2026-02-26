@@ -1,0 +1,165 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+    typeName: 'Sales App',
+    typeNamePlural: 'Sales App',
+    title: {
+       type: #STANDARD,
+       label: 'Sales Id',
+       value: 'Vbeln'
+    }
+
+}
+
+
+annotate view ZI_CDS_SALE with
+{
+
+  @UI.facet: [{
+      id: 'Vbeln',
+      purpose: #STANDARD,
+      position: 10,
+      importance: #HIGH,
+      label: 'Sales Id',
+      type: #IDENTIFICATION_REFERENCE
+  }]
+
+
+  @UI.lineItem: [{
+      position: 10 ,
+      importance: #HIGH,
+      emphasized: true,
+      type: #STANDARD,
+      label: 'Sales Order Id'
+
+  }]
+
+  @UI.identification: [{
+      position: 10 ,
+      importance: #HIGH ,
+      emphasized: true,
+      label: 'Sales Order Id'
+
+  }]
+
+
+  Vbeln;
+
+  @UI.lineItem: [{
+    position: 20 ,
+    importance: #HIGH,
+    emphasized: true,
+    type: #STANDARD,
+    label: 'Date'
+
+  }]
+
+  @UI.identification: [{
+    position: 20 ,
+    importance: #HIGH ,
+    emphasized: true,
+    label: 'Date'
+
+  }]
+  Erdat;
+
+
+  @UI.lineItem: [{
+    position: 30 ,
+    importance: #HIGH,
+    emphasized: true,
+    type: #STANDARD,
+    label: 'Doc type'
+
+  }]
+
+  @UI.identification: [{
+      position: 30 ,
+      importance: #HIGH ,
+      emphasized: true,
+      label: 'Sales Doc type'
+
+  }]
+  Vbtyp;
+
+  @UI.lineItem: [{
+    position: 40 ,
+    importance: #HIGH,
+    emphasized: true,
+    type: #STANDARD,
+    label: 'Item No'
+
+  }]
+
+
+  @UI.identification: [{
+      position: 40 ,
+      importance: #HIGH ,
+      emphasized: true,
+      label: 'Line Item'
+
+  }]
+  Posnr;
+
+  @UI.lineItem: [{
+  position: 50 ,
+  importance: #HIGH,
+  emphasized: true,
+  type: #STANDARD,
+  label: 'Quantity'
+
+  }]
+
+  @UI.identification: [{
+      position: 50 ,
+      importance: #HIGH ,
+      emphasized: true,
+      label: 'Quantity'
+
+  }]
+
+  Menge;
+
+  @UI.lineItem: [{
+  position: 60 ,
+  importance: #HIGH,
+  emphasized: true,
+  type: #STANDARD,
+  label: 'Unit'
+
+  }]
+
+  @UI.identification: [{
+    position: 60 ,
+    importance: #HIGH ,
+    emphasized: true,
+    label: 'Unit'
+
+  }]
+
+  UnitField;
+
+  @UI.lineItem: [{
+  position: 70 ,
+  importance: #HIGH,
+  emphasized: true,
+  label: 'SO Closed' },
+  {  type: #FOR_ACTION , dataAction: 'SetClosed' , label: 'Set Closed' }
+
+  ]
+
+
+  @UI.identification: [{
+      position: 70 ,
+      importance: #HIGH ,
+      emphasized: true,
+      label: 'So Closed' },
+      {  type: #FOR_ACTION , dataAction: 'SetClosed' , label: 'Set Closed' }
+
+  ]
+  soclosed;
+  //      changed_date_time as ChangedDate
+
+
+
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for PO'
+define service Zsb_po {
+  expose zi_po_data;
+}
