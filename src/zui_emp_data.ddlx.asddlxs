@@ -1,0 +1,213 @@
+@Metadata.layer: #CUSTOMER
+
+//@UI.headerInfo: { [
+//  typeName: 'Employee Detail',
+//  typeNamePlural: 'Employee Details',
+//  title: { type: #STANDARD }  // Optional but useful: show Empid as header title
+//] }
+@UI.headerInfo: {
+    typeName: 'Employee Detail',
+    typeNamePlural: 'Employee Details'
+//     title: {
+//        type: #STANDARD,
+//        label: 'Employee Details'
+//        iconUrl: '',
+//        criticality: '',
+//        criticalityRepresentation: #WITHOUT_ICON,
+//        value: 'Empid'
+//        valueQualifier: '',
+//        targetElement: '',
+//        url: ''
+//    },
+//    description: {
+//        type: #STANDARD,
+//        label: '',
+//        iconUrl: '',
+//        criticality: '',
+//        criticalityRepresentation: #WITHOUT_ICON,
+//        value: '',
+//        valueQualifier: '',
+//        targetElement: '',
+//        url: ''
+//    }
+}
+
+annotate view zcds_empl_det with
+{
+  /* --- Facets (Object Page sections) --- */
+  @UI.facet: [
+    {
+      id: 'General',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'General Information',
+      position: 10,
+      targetQualifier: 'General'   // links to @UI.identification(... qualifier = 'General')
+    }
+  ]
+
+//
+//@ui.facet: [{
+//    qualifier: '',
+//    feature: '',
+//    id: '',
+//    purpose: #STANDARD,
+//    parentId: '',
+//    position: ,
+//    exclude: true,
+//    hidden: true,
+//    isPartOfPreview: true,
+//    isSummary: true,
+//    isMap: true,
+//    importance: ,
+//    label: '',
+//    type: ,
+//    targetElement: '',
+//    targetQualifier: '',
+//    url: ''
+//}]
+
+
+
+  /* --- Empid --- */
+  @UI.lineItem: [
+    { position: 10, label: 'EmpId' }
+  ]
+  @UI.identification: [
+    { position: 10, label: 'EmpId', qualifier: 'General' }
+  ]
+  
+  @UI.dataPoint: {
+      qualifier: 'EmpId',
+//      hidden: true,
+      title: 'Employee Id'
+//      description: '',
+//      longDescription: '',
+//      targetValue: ,
+//      targetValueElement: '',
+//      forecastValue: '',
+//      minimumValue: ,
+//      maximumValue: ,
+//      visualization: ,
+//      valueFormat: {
+//          scaleFactor: ,
+//          numberOfFractionalDigits: 
+//      },
+//      referencePeriod: {
+//          description: '',
+//          start: '',
+//          end: ''
+//      },
+//      criticality: '',
+//      withCriticalityLabels: true,
+//      criticalityValue: ,
+//      criticalityRepresentation: #WITHOUT_ICON,
+//      criticalityCalculation: {
+//          improvementDirection: ,
+//          acceptanceRangeLowValue: ,
+//          acceptanceRangeHighValue: ,
+//          toleranceRangeLowValue: ,
+//          toleranceRangeLowValueElement: '',
+//          toleranceRangeHighValue: ,
+//          toleranceRangeHighValueElement: '',
+//          deviationRangeLowValue: ,
+//          deviationRangeLowValueElement: '',
+//          deviationRangeHighValue: ,
+//          deviationRangeHighValueElement: '',
+//          constantThresholds: [{
+//              aggregationLevel: [ '' ],
+//              acceptanceRangeLowValue: ,
+//              acceptanceRangeHighValue: ,
+//              toleranceRangeLowValue: ,
+//              toleranceRangeHighValue: ,
+//              deviationRangeLowValue: ,
+//              deviationRangeHighValue: 
+//          }]
+//      },
+//      trend: '',
+//      trendCalculation: {
+//          referenceValue: '',
+//          isRelativeDifference: true,
+//          upDifference: ,
+//          upDifferenceElement: '',
+//          strongUpDifference: ,
+//          strongUpDifferenceElement: '',
+//          downDifference: ,
+//          downDifferenceElement: '',
+//          strongDownDifference: ,
+//          strongDownDifferenceElement: ''
+//      },
+//      responsible: '',
+//      responsibleName: ''
+  }
+
+  Empid;
+
+  /* --- Empdesg --- */
+  @UI.lineItem: [
+    { position: 20, label: 'EmpDesg' }
+  ]
+  @UI.identification: [
+    { position: 20, label: 'EmpDesg', qualifier: 'General' }
+  ]
+  Empdesg;
+
+  /* --- Empsal --- */
+  @UI.lineItem: [
+    { position: 30, label: 'EmpSal' }
+  ]
+  @UI.identification: [
+    { position: 30, label: 'EmpSal', qualifier: 'General' }
+  ]
+  Empsal;
+}
+
+
+
+//@Metadata.layer:#CUSTOMER
+//
+//
+//@UI.headerInfo: {
+//    typeName: 'Employee Detail',
+//    typeNamePlural: 'Employee Details'
+//}
+//annotate view zcds_empl_det with
+//{
+//
+//  @UI.facet: [{
+//      id: 'Empid',
+//      purpose: #STANDARD,
+//      position: 10,
+//      importance: #HIGH,
+//       type: #IDENTIFICATION_REFERENCE  }  ]
+//
+//
+//  @UI.lineItem: [{ position: 10,
+//                   label : 'EmpId'  } ]
+//
+//  @UI.identification: [{ position: 10,
+//                         label: 'EmpId' } ]
+//  Empid;
+//
+//
+//
+//  @UI.lineItem: [{ position: 20,
+//                     label : 'Empdesg'  } ]
+//
+//  @UI.identification: [{ position: 20,
+//                           label: 'Empdesg'  } ]
+//
+//  Empdesg;
+//
+//
+//  @UI.lineItem: [{ position: 30,
+//                 label : 'EmpSal'  } ]
+//
+//
+//  @UI.identification: [{ position: 30,
+//                               label: 'EmpSal' } ]
+//
+//
+//  Empsal;
+//
+//}

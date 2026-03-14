@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD for Empl Det'
+define service Zsd_emp_det {
+  expose zcds_empl_det;
+}

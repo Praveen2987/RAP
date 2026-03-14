@@ -1,0 +1,88 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo: {
+    typeName: 'Purchase Detail',
+    typeNamePlural: 'Purchase Details'
+//    typeImageUrl: '',
+//    imageUrl: '',
+//    title: {
+//        type: #STANDARD,
+//        label: '',
+//        iconUrl: '',
+//        criticality: '',
+//        criticalityRepresentation: #WITHOUT_ICON,
+//        value: '',
+//        valueQualifier: '',
+//        targetElement: '',
+//        url: ''
+//    },
+//    description: {
+//        type: #STANDARD,
+//        label: '',
+//        iconUrl: '',
+//        criticality: '',
+//        criticalityRepresentation: #WITHOUT_ICON,
+//        value: '',
+//        valueQualifier: '',
+//        targetElement: '',
+//        url: ''
+//    }
+}
+annotate entity zp_header_po with
+{
+
+  @UI.facet: [{
+      qualifier: 'Pono',
+      feature: '',
+      id: 'Pono',
+      purpose: #STANDARD,
+      parentId: '',
+      position: 10,
+  //    exclude: true,
+  //    hidden: true,
+  ////    isPartOfPreview: true,
+  //    isSummary: true,
+  //    isMap: true,
+      importance: #HIGH ,
+      label: 'Header Info',
+      type: #IDENTIFICATION_REFERENCE
+  //    targetElement: '',
+  //    targetQualifier: '',
+  //    url: ''
+  },
+
+    {
+      purpose: #STANDARD,
+      parentId: '',
+      position: 10,
+      importance: #HIGH ,
+      label: 'Item Info',
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_item'
+
+  } ]
+
+
+  @UI.lineItem: [{ position: 10,
+                   label: 'Po No' }]
+  @UI.identification: [{ position: 10, label: 'Po NO' }]
+  Pono;
+
+
+  @UI.lineItem: [{ position: 20, label: 'Company' }]
+  @UI.identification: [{ position: 20, label: 'Company' }]
+  Pocompany;
+
+  @UI.lineItem: [{ position: 30, label: 'PO Date' }]
+  @UI.identification: [{ position: 30, label: 'PO Date' }]
+
+  Podate;
+
+  @UI.lineItem: [{ position: 40, label: 'Desc' }]
+  @UI.identification: [{ position: 40, label: 'Desc' }]
+  Podesc;
+
+  @UI.lineItem: [{ position: 50, label: 'Status' }]
+  @UI.identification: [{ position: 50, label: 'Status' }]
+  Postatus;
+
+}

@@ -1,0 +1,43 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'SampleTableForMaint', 
+    typeNamePlural: 'SampleTableForMaints', 
+    title: {
+      type: #STANDARD, 
+      label: 'sample table for maintainence object', 
+      value: 'VechNo'
+    }
+  }
+}
+annotate view ZI_SampleTableForMaint with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Copy', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_SampleTableForMaint', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'sample table for maintainence object', 
+    position: 1 
+  } ]
+  VechNo;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  VechPass;
+}

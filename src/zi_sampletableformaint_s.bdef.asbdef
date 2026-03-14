@@ -1,0 +1,74 @@
+managed with additional save implementation in class ZBP_I_SAMPLETABLEFORMAINT_S unique;
+strict;
+with draft;
+define behavior for ZI_SampleTableForMaint_S alias SampleTableForMaAll
+draft table ZTABLE_MAIN_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation SampleTableForMaint ~ ValidateDataConsistency;
+  }
+
+  association _SampleTableForMaint { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_SampleTableForMaint alias SampleTableForMaint ##UNMAPPED_FIELD
+persistent table ZTABLE_MAINT
+draft table ZTABLE_MAINT_D
+lock dependent by _SampleTableForMaAll
+authorization dependent by _SampleTableForMaAll
+{
+  field ( mandatory : create )
+   VechNo,
+   VechPass;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   VechNo,
+   VechPass;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  factory action ( features : instance ) Copy parameter ZD_CopySampleTableForMaintP [1];
+
+  mapping for ZTABLE_MAINT
+  {
+    VechNo = VECH_NO;
+    VechPass = VECH_PASS;
+  }
+
+  association _SampleTableForMaAll { with draft; }
+
+  validation ValidateDataConsistency on save
+  {
+    create;
+    update;
+  }
+
+}

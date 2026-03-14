@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_SampleTableForMaint_S'
+define service ZUI_SAMPLETABLEFORMAINT {
+  expose ZI_SAMPLETABLEFORMAINT_S as SampleTableForMaAll;
+  expose ZI_SAMPLETABLEFORMAINT as SampleTableForMaint;
+}

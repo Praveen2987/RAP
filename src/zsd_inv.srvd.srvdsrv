@@ -1,0 +1,4 @@
+@EndUserText.label: 'sd for invoice attachement'
+define service Zsd_inv {
+  expose ZI_INVOICETABLE;
+}

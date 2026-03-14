@@ -1,0 +1,23 @@
+unmanaged implementation in class zbp_cds_empl_det unique;
+with draft;
+//strict ( 2 );
+
+define behavior for zcds_empl_det alias emp
+//late numbering
+lock master total etag creattsp
+draft table ztb_emp_drft
+authorization master ( instance )
+etag master creattsp
+
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Empid;
+  determination sal_cal on modify { create; }
+  validation emp_val on save { create; field Empdesg; }
+  draft determine action Prepare
+  {
+    validation emp_val;
+  }
+}
