@@ -1,0 +1,170 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  headerInfo: {
+    typeName:        'Billing Document Header',
+    typeNamePlural:  'Billing Documents',
+    title: {
+      type:  #STANDARD,
+      label: 'Billing Document',
+      value: 'BillId'
+    }
+  }
+}
+
+annotate entity zp_bill_header with
+{
+  @UI.facet: [
+      {
+///        id:       'BillingDocHead',
+        purpose:  #STANDARD,
+        type:     #IDENTIFICATION_REFERENCE,
+        label:    'Header',
+        position: 10
+      },
+      {
+//        id:            'BillingDocItem',
+        purpose:       #STANDARD,
+        type:          #LINEITEM_REFERENCE,
+        label:         'Items',
+        position:      20,
+        targetElement: '_item'
+      }
+    ]
+
+
+  @EndUserText.label: 'Billing Document'
+  @UI: {
+    lineItem:       [ { position: 10 } ],
+    identification: [ { position: 10 } ],
+    selectionField: [ { position: 10 } ]
+  }
+  BillId;
+
+  @EndUserText.label: 'Billing Document Type'
+  @UI: {
+    lineItem:       [ { position: 20 } ],
+    identification: [ { position: 20 } ],
+    selectionField: [ { position: 20 } ]
+  }
+  BillType;
+
+  @EndUserText.label: 'Billing Date'
+  @UI: {
+    lineItem:       [ { position: 30 } ],
+    identification: [ { position: 30 } ]
+  }
+  BillDate;
+
+  @EndUserText.label: 'Customer'
+  @UI: {
+    lineItem:       [ { position: 40 } ],
+    identification: [ { position: 40 } ]
+  }
+  CustomerId;
+
+  @EndUserText.label: 'Net Amount'
+  @UI: {
+    lineItem:       [ { position: 50 } ],
+    identification: [ { position: 50 } ]
+  }
+  NetAmount;
+
+  @EndUserText.label: 'Currency'
+  @UI: {
+    lineItem:       [ { position: 60 } ],
+    identification: [ { position: 60 } ]
+  }
+  Currency;
+
+  @EndUserText.label: 'Sales Organization'
+  @UI: {
+    lineItem:       [ { position: 70 } ],
+    identification: [ { position: 70 } ]
+  }
+  SalesOrg;
+}
+
+
+//    // --- START OF FINAL CORRECTION ---
+//
+//    // All columns and buttons for the list report table go inside this SINGLE lineItem array.
+//  @UI.lineItem: [
+//    // Object 1: The column for the BillId field
+//    {
+//      position: 10,
+//      importance: #HIGH
+//    },
+//    // Object 2: The button for the setFullName action
+//    {
+//      type:       #FOR_ACTION,
+//      dataAction: 'setFullName',
+//      label:      'Set Customer Name',
+//      position: 15  // Position for the button in the toolbar
+//      },
+//       // Object 3: The button for the COPY action
+//      {
+//        type:       #FOR_ACTION,
+//        dataAction: 'copyBillDoc',
+//        label:      'Copy to Create',
+//        position: 16  // Position for the button in the toolbar
+//      }
+//    ]
+//  @UI.identification: [ { position: 10 } ]
+//  @UI.selectionField: [ { position: 10 } ]
+//  @EndUserText.label: 'Billing Document'
+//  BillId;
+//
+//  // --- END OF FINAL CORRECTION ---
+//
+//
+//  @EndUserText.label: 'Billing Document Type'
+//  @UI: {
+//    lineItem:       [ { position: 20 } ],
+//    identification: [ { position: 20 } ],
+//    selectionField: [ { position: 20 } ]
+//  }
+//  BillType;
+//
+//  @EndUserText.label: 'Billing Date'
+//  @UI: {
+//    lineItem:       [ { position: 30 } ],
+//    identification: [ { position: 30 } ]
+//  }
+//  BillDate;
+//
+//  @EndUserText.label: 'Customer'
+//  @UI: {
+//    lineItem:       [ { position: 40 } ],
+//    identification: [ { position: 40 } ]
+//  }
+//  CustomerId;
+//
+//  @EndUserText.label: 'Customer Name'
+//  @UI: {
+//    lineItem:       [ { position: 45 } ],
+//    identification: [ { position: 45 } ]
+//  }
+//  CustomerName;
+//
+//  @EndUserText.label: 'Net Amount'
+//  @UI: {
+//    lineItem:       [ { position: 50 } ],
+//    identification: [ { position: 50 } ]
+//  }
+//  NetAmount;
+//
+//  @EndUserText.label: 'Currency'
+//  @UI: {
+//    lineItem:       [ { position: 60 } ],
+//    identification: [ { position: 60 } ]
+//  }
+//  Currency;
+//
+//  @EndUserText.label: 'Sales Organization'
+//  @UI: {
+//    lineItem:       [ { position: 70 } ],
+//    identification: [ { position: 70 } ]
+//  }
+//  SalesOrg;
+//}

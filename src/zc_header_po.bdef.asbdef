@@ -1,0 +1,29 @@
+managed implementation in class zbp_c_header_po unique;
+strict ( 2 );
+
+define behavior for zc_header_po alias header
+persistent table zhead_po
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Pono;
+  association _item { create; }
+
+}
+
+
+define behavior for zc_item_po alias item
+persistent table zitem_po
+lock dependent by _header
+authorization dependent by _header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Pono, Poitem;
+  association _header;
+}

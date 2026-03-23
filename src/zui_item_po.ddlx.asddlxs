@@ -2,6 +2,7 @@
 annotate entity zp_item_po with
 {
   @UI.facet: [{
+  id : 'Po item',
   purpose: #STANDARD,
   position: 10,
   label: 'Item',

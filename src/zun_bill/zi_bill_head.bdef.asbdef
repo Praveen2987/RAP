@@ -1,0 +1,67 @@
+managed implementation in class zbp_i_bill_head unique;
+strict ( 2 );
+
+define behavior for zi_bill_head alias bill_head
+persistent table ztb_bill
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) BillId;
+  association _item { create; }
+
+  mapping for ztb_bill
+    {
+      BillId        = bill_id;
+      BillDate      = bill_date;
+      BillType      = bill_type;
+      CustomerId    = customer_id;
+      CustomerName  = customer_name;
+      NetAmount     = net_amount;
+      Currency      = currency;
+      SalesOrg      = sales_org;
+      LastChangedAt = last_changed_at;
+      createdby     = createdby;
+      changedby     = changedby;
+    }
+}
+
+define behavior for zi_bill_itm //alias <alias_name>
+persistent table ztb_bill_itm
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) BillId, ItemNo;
+  association _head;
+
+  mapping for ztb_bill_itm
+    {
+      BillId        = bill_id;
+      ItemNo        = item_no;
+      MaterialId    = material_id;
+      Description   = description;
+      Quantity      = quantity;
+      ItemAmount    = item_amount;
+      Currency      = currency;
+      Uom           = uom;
+      LastChangedAt = last_changed_at;
+      createdby     = createdby;
+      changedby     = changedby;
+    }
+
+
+
+
+
+
+
+
+
+
+}

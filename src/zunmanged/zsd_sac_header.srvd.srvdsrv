@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition for billing'
+define service Zsd_sac_header {
+  expose zsac_c_header as BillingDocumentHeader;
+  expose zsac_c_item   as BillingDocumentItem;
+}

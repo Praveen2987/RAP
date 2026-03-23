@@ -1,0 +1,60 @@
+managed implementation in class zbp_sac_i_header unique;
+strict ( 2 );
+
+define behavior for zsac_i_header alias header
+persistent table ztb_sac_header
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) BillId;
+  association _item { create; }
+
+  mapping for zsac_bill_header
+    {
+      BillId             = bill_id;
+      BillType           = bill_type;
+      BillDate           = bill_date;
+      CustomerId         = customer_id;
+      NetAmount          = net_amount;
+      Currency           = currency;
+      SalesOrg           = sales_org;
+      CreatedBy          = createdby;
+      CreateDat          = createdat;
+      LastChangedBy      = lastchangedby;
+      LastChangeDat      = lastchangedat;
+      LocalLastChangeDat = locallastchangedat;
+    }
+}
+
+define behavior for zsac_i_item alias item
+persistent table ztb_sac_item
+lock dependent by _header
+authorization dependent by _header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) BillId, ItemNo;
+  association _header;
+
+  mapping for zsac_bill_item
+    {
+      BillId             = bill_id;
+      ItemNo             = item_no;
+      MaterialId         = material_id;
+      Description        = description;
+      Quantity           = quantity;
+      ItemAmount         = item_amount;
+      Currency           = currency;
+      Uom                = uom;
+      CreatedBy          = createdby;
+      CreateDat          = createdat;
+      LastChangedBy      = lastchangedby;
+      LastChangeDat      = lastchangedat;
+      LocalLastChangeDat = locallastchangedat;
+    }
+}
