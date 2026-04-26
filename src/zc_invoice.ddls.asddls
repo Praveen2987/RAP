@@ -3,7 +3,7 @@
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 define root view entity zc_invoice
-  provider contract transactional_interface
+  provider contract transactional_query
   as projection on ZI_INVOICETABLE
 {
   key Invoice,

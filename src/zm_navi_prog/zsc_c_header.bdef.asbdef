@@ -1,0 +1,19 @@
+projection;
+strict ( 2 );
+
+define behavior for zsc_c_header alias head
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _item { create; }
+}
+
+define behavior for zsc_c_item alias item
+{
+  use update;
+  use delete;
+
+  use association _head;
+}

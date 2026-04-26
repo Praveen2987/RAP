@@ -1,0 +1,26 @@
+managed implementation in class zbp_i_upload_file unique;
+with draft;
+//strict;
+
+define behavior for zi_upload_file alias attach
+persistent table zfile_upload
+lock master total etag locllastchanged
+with additional save
+draft table zdrft_file
+authorization master ( instance )
+etag master locllastchanged
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Id;
+
+  draft action Edit;
+  draft action Resume;
+  draft action Activate;
+  draft action Discard;
+  draft determine action Prepare;
+
+
+
+}

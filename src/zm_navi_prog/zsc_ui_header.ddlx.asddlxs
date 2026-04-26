@@ -1,0 +1,61 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+    typeName: 'Order Detail',
+    typeNamePlural: 'Order Details',
+    typeImageUrl: 'sap-icon://sales-order',
+//    imageUrl: '',
+    title: {
+        type: #STANDARD,
+        label: 'Order Details',
+        value: 'Vbeln'
+    }
+}
+annotate entity zsc_c_header with
+{
+
+  @UI.facet: [
+  {
+      id: 'SalesDocHeader',
+      purpose: #STANDARD,
+      position: 10 ,
+      label: 'Header',
+      type:#IDENTIFICATION_REFERENCE
+  },
+  {
+      id: 'SalesDocItem',
+      purpose: #STANDARD,
+      position: 20 ,
+      label: 'Items',
+      type:#LINEITEM_REFERENCE,
+      targetElement: '_item'
+  //
+  }
+  ]
+
+  @UI.lineItem: [{ position: 10,
+                   label: 'Order No'  }]
+  @UI.identification: [{ position: 10,
+                         label: 'Order No' }]
+  @UI.selectionField: [ { position: 10 } ]
+
+  Vbeln;
+
+  @UI.lineItem: [{ position: 20,
+                   label: 'Document Type'  }]
+
+  @UI.identification: [{ position: 20,
+                         label: 'Document Type' }]
+
+  DocType;
+
+  @UI.lineItem: [{ position: 30,
+                   label: 'Creation Date'  }]
+  @UI.identification: [{ position: 30,
+                         label: 'Creation Date' }]
+
+  Erdat;
+
+  // ChangedDate;
+
+}

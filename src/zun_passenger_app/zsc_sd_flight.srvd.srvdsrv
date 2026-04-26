@@ -1,0 +1,5 @@
+@EndUserText.label: 'SD for flightbooking'
+define service Zsc_sd_flight {
+  expose zsc_c_booking   as booking;
+  expose zsc_c_passenger as passenger;
+}

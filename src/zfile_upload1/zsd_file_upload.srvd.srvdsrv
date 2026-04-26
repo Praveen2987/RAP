@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for file upload'
+define service Zsd_file_upload {
+  expose zi_upload_file;
+}

@@ -1,0 +1,41 @@
+unmanaged implementation in class zbp_sc_i_booking unique;
+strict ( 2 );
+with draft;
+
+define behavior for zsc_i_booking alias booking
+late numbering
+lock master
+total etag LastChangedAt
+draft table zdraft_booking
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete ( precheck );
+  field ( readonly ) BookingId;
+  association _passenger { create; }
+  action ( features : instance ) Change_Status result [1] $self;
+
+  draft action Edit;
+  draft action Discard;
+  draft action Resume;
+  draft action Activate;
+  draft determine action Prepare;
+
+
+}
+
+define behavior for zsc_i_passenger alias passenger
+late numbering
+lock dependent by _booking
+draft table zdraft_passenger
+authorization dependent by _booking
+etag master LastChangedAt
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) BookingId, PassengerNo;
+  association _booking;
+}

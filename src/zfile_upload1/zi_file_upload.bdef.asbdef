@@ -1,0 +1,26 @@
+managed implementation in class zbp_i_file_upload unique;
+strict ( 2 );
+with draft;
+
+define behavior for zi_file_upload alias attach
+//persistent table zfile_upload
+lock master total etag locllastchanged
+draft table zdrft_attach
+with unmanaged save
+authorization master ( instance )
+etag master locllastchanged
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Id;
+
+  draft action Activate;
+  draft action Resume;
+  draft action Edit;
+  draft action Discard;
+  draft determine action Prepare;
+
+  side effects { field Attachment affects field Id; }
+
+}

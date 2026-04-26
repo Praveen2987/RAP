@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>Z_RAP_MES</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>MESSAGE CLASS</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_RAP_MES</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Booking Saved</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_RAP_MES</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Booking &amp;1 Created</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>Z_RAP_MES</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Passenger &amp;1 Created</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

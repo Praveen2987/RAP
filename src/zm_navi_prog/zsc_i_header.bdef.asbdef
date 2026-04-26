@@ -1,0 +1,27 @@
+unmanaged implementation in class zbp_sc_i_header unique;
+strict ( 2 );
+
+define behavior for zsc_i_header alias head
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Vbeln;
+  association _item { create; }
+}
+
+define behavior for zsc_i_item alias item
+//late numbering
+lock dependent by _head
+authorization dependent by _head
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Vbeln, Posnr;
+  association _head;
+}

@@ -1,0 +1,86 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+    typeName: 'Flight Booking',
+    typeNamePlural: 'FLight Bookings',
+    typeImageUrl: 'sap-icon://travel-expense',
+//     imageUrl: '',
+    title: {
+//        type: #STANDARD,
+//        label: '',
+//        iconUrl: '',
+//        criticality: '',
+//        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'BookingId'
+//        valueQualifier: '',
+//        targetElement: '',
+//        url: ''
+    },
+    description: {
+//        type: #STANDARD,
+//        label: '',
+//        iconUrl: '',
+//        criticality: '',
+//        criticalityRepresentation: #WITHOUT_ICON,
+          value: 'FlightNo'
+//        valueQualifier: '',
+//        targetElement: '',
+//        url: ''
+    }
+}
+
+annotate entity zsc_c_booking with
+{
+
+
+  @UI.facet: [
+  {
+      id: 'Flight',
+      purpose: #STANDARD,
+      position : 10 ,
+      importance: #HIGH ,
+      label: 'Flight Details',
+      type: #IDENTIFICATION_REFERENCE
+  },
+
+  {
+      id: 'Passenger',
+      purpose: #STANDARD,
+      position : 20 ,
+      importance: #HIGH ,
+      label: 'Passenger Details',
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_passenger'
+  }
+  ]
+
+
+  @UI.lineItem: [ { position: 10, importance: #HIGH , label: 'Booking Id' }  ]
+  @UI.identification: [ { position: 10 , label: 'Booking Id' } ]
+  BookingId;
+
+  @UI.lineItem: [ { position: 20, importance: #HIGH , label: 'Customer Id' }  ]
+  @UI.identification: [ { position: 20 , label: 'Customer Id' } ]
+  CustomerId;
+
+  @UI.lineItem: [ { position: 30, importance: #HIGH , label: 'FlightNo'}  ]
+  @UI.identification: [ { position: 30 , label: 'FlightNo' } ]
+  FlightNo;
+
+  @UI.lineItem: [ { position: 40, importance: #HIGH , label: 'Booking Date' }  ]
+  @UI.identification: [ { position: 40 , label: 'Booking Date' } ]
+  BookingDate;
+
+  @UI.lineItem: [ { position: 50, importance: #HIGH , label:'Status' ,type : #STANDARD },
+                  { type: #FOR_ACTION , dataAction: 'Change_Status' , label: 'Change Status' }   ]
+
+  @UI.identification: [ { position: 50 ,  label:'Status', type : #STANDARD , importance: #HIGH },
+                        { type: #FOR_ACTION , dataAction: 'Change_Status' , label: 'Change Status' } ]
+  @UI.dataPoint: { qualifier: 'Status', title: 'Status'}
+
+  Status;
+
+
+
+
+}
