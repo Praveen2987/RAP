@@ -34,6 +34,8 @@ CLASS lhc_booking DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING keys FOR ACTION booking~Change_Status RESULT result.
     METHODS precheck_delete FOR PRECHECK
       IMPORTING keys FOR DELETE booking.
+    METHODS undo_status FOR MODIFY
+      IMPORTING keys FOR ACTION booking~undo_status RESULT result.
 
 ENDCLASS.
 
@@ -84,6 +86,17 @@ CLASS lhc_booking IMPLEMENTATION.
 
 **    DATA(ls_entity) = VALUE #(  entities[ 1  ] OPTIONAL ).
 
+**check if any passgenger data is available'
+
+    DATA(lv_id) = VALUE #(  entities[ 1 ]-BookingId ).
+
+    SELECT COUNT( * ) FROM zbooking_pass WHERE booking_id = @lv_id INTO @DATA(lv_count).
+    IF sy-subrc = 0 AND lv_count IS NOT INITIAL.
+      DATA(lv_status) = 'C'.
+    ELSE.
+      lv_status = 'O'.
+    ENDIF.
+
 
     GET TIME STAMP FIELD lv_timestmp.
 
@@ -95,7 +108,7 @@ CLASS lhc_booking IMPLEMENTATION.
 *      ls_tab_u-booking_date = <lfs_data>-BookingDate.
 
       IF <lfs_data>-%control-Status = if_abap_behv=>mk-on.
-        ls_tab_u-Status = 'C'.
+        ls_tab_u-Status = lv_status. "'C'.
       ENDIF.
 
 
@@ -103,10 +116,10 @@ CLASS lhc_booking IMPLEMENTATION.
                        customer_id = <lfs_data>-CustomerId
                        flight_no = <lfs_data>-FlightNo
                        booking_date = <Lfs_data>-BookingDate
-                       status = 'C' col_ind-status = '01'
+                       status = lv_status  col_ind-status = '01'
                        last_changed_at = lV_timestmp col_ind-last_changed_at = '01' ) TO zbp_sc_i_booking=>gt_booking.
 
-
+      "'C'
 
     ENDLOOP.
 
@@ -266,6 +279,51 @@ CLASS lhc_booking IMPLEMENTATION.
 
       ENDLOOP.
     ENDIF.
+  ENDMETHOD.
+
+  METHOD Undo_Status.
+**Change the status to O as if seats are not occupied
+
+
+
+    DATA: lt_data_u TYPE TABLE FOR UPDATE zsc_i_booking.
+
+    READ ENTITIES OF zsc_i_booking IN LOCAL MODE
+    ENTITY booking
+    FIELDS (  status  )
+    WITH CORRESPONDING #( keys )
+    RESULT DATA(lt_data).
+
+
+    LOOP AT lt_data ASSIGNING FIELD-SYMBOL(<lfS_data>).
+      <lfs_data>-Status = 'C'.
+*      APPEND VALUE #( %tky   = <lfs_data>-%tky
+*                       bookingid = <Lfs_data>-BookingId ) TO lt_booking_u.
+
+*      lt_data_u =  CORRESPONDING #(  DEEP lt_data ).
+
+      APPEND VALUE #(  %tky = <lfs_data>-%tky
+                       status = 'O' ) TO lt_data_u.
+
+
+    ENDLOOP.
+
+
+    MODIFY ENTITIES OF zsc_i_booking IN LOCAL MODE
+    ENTITY booking UPDATE FIELDS (  Status )
+    WITH lt_data_u.
+
+
+    READ ENTITIES OF zsc_i_booking IN
+    LOCAL MODE ENTITY booking
+    ALL FIELDS WITH CORRESPONDING #( lt_data )
+    RESULT DATA(lt_booking_upd) .
+
+
+    result = VALUE #(  FOR ls_upd IN lt_data (  %tky = ls_upd-%tky
+                                                       %param = ls_upd ) ).
+
+
   ENDMETHOD.
 
 ENDCLASS.

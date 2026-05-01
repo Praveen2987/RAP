@@ -72,10 +72,14 @@ annotate entity zsc_c_booking with
   BookingDate;
 
   @UI.lineItem: [ { position: 50, importance: #HIGH , label:'Status' ,type : #STANDARD },
-                  { type: #FOR_ACTION , dataAction: 'Change_Status' , label: 'Change Status' }   ]
+                  { type: #FOR_ACTION , dataAction: 'Change_Status' , label: 'Change Status( C = Complete )' },
+                  { type: #FOR_ACTION , dataAction: 'Undo_Status' , label: 'Undo Status( O = Occupied)' }   ]
 
   @UI.identification: [ { position: 50 ,  label:'Status', type : #STANDARD , importance: #HIGH },
-                        { type: #FOR_ACTION , dataAction: 'Change_Status' , label: 'Change Status' } ]
+                        { type: #FOR_ACTION , dataAction: 'Change_Status' , label: 'Change Status( C = Complete )' },
+                        { type: #FOR_ACTION , dataAction: 'Undo_Status' , label: 'Undo Status( O = Occupied)' } ]
+
+
   @UI.dataPoint: { qualifier: 'Status', title: 'Status'}
 
   Status;

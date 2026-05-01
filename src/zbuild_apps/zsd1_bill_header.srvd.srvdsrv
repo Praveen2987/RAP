@@ -1,0 +1,4 @@
+@EndUserText.label: 'SD bill header for build apps'
+define service Zsd1_bill_header {
+  expose ZCDS_BILL_HEADER;
+}

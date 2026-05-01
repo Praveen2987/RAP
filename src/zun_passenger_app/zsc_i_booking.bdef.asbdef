@@ -16,6 +16,7 @@ etag master LastChangedAt
   field ( readonly ) BookingId;
   association _passenger { create; }
   action ( features : instance ) Change_Status result [1] $self;
+  action ( features : instance ) Undo_Status result [1] $self;
 
   draft action Edit;
   draft action Discard;
