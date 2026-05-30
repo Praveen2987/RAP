@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_sac_tb_update_itm IMPLEMENTATION.
+CLASS ZCL_SAC_TB_UPDATE_ITM IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

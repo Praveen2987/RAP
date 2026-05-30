@@ -1,0 +1,5 @@
+@EndUserText.label: 'SD for Flight Connect'
+define service Zsd_flight_connect {
+  expose ziv_connect;
+  expose ziv_flight;
+}

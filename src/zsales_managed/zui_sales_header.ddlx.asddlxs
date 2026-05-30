@@ -1,0 +1,114 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: {
+    typeName: 'Sale Data',
+    typeNamePlural: 'Sales Data',
+    typeImageUrl: 'sap-icon://sales-order',
+//    imageUrl: 'sap-icon://sales-order',
+    title: {
+        type: #STANDARD,
+        label: 'Sales Data',
+         value: 'Vbeln'
+//        valueQualifier: '',
+//        targetElement: '',
+//        url: ''
+    }
+
+}
+
+annotate entity zc_so1_header with
+{
+
+
+  @UI.facet: [{
+//      id: 'Sales_Header',
+      purpose: #STANDARD,
+      position: 10,
+//      importance: #HIGH,
+      label: 'Sales Header',
+      type: #IDENTIFICATION_REFERENCE
+  //    targetElement: '',
+  //    targetQualifier: '',
+  },
+  {
+//      id: 'Sales_Item',
+      purpose: #STANDARD,
+      position: 20,
+//      importance: #HIGH,
+      label: 'Sales Item',
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_item'
+  //    targetQualifier: '',
+  },
+
+    {
+ //       id: 'Schedule_Item',
+        purpose: #STANDARD,
+        position: 30,
+//        importance: #LOW,
+        label: 'Schedule Item',
+        type: #LINEITEM_REFERENCE,
+        targetElement: '_schd'
+    //    targetQualifier: '',
+    }
+
+  ]
+
+
+  @UI.lineItem :[ {
+    //    qualifier: '',
+        position: 10,
+        importance: #HIGH ,
+        emphasized: true,
+        type: #STANDARD,
+        label: 'Sales Order No'
+
+    } ]
+
+  @UI.identification: [{ position: 10, label: 'Sales Order No' }]
+
+
+  Vbeln;
+
+  @UI.lineItem :[ {
+    //    qualifier: '',
+        position: 20,
+        importance: #HIGH ,
+        type: #STANDARD,
+        label: 'Date'
+
+    } ]
+
+  @UI.identification: [{ position: 20, label: 'Date' }]
+
+
+
+  Erdat;
+
+  @UI.lineItem :[ {
+  //    qualifier: '',
+      position: 30,
+      importance: #HIGH ,
+      type: #STANDARD,
+      label: 'Sales Doc type'
+
+  } ]
+
+  @UI.identification: [{ position: 30, label: 'Sales Doc type' }]
+
+
+  Auart;
+
+  @UI.lineItem :[ {
+  //    qualifier: '',
+    position: 40,
+    importance: #HIGH ,
+    type: #STANDARD,
+    label: 'Sales Doc type'
+
+  } ]
+
+  @UI.identification: [{ position: 40, label: 'Sales Org' }]
+  Vkorg;
+
+}

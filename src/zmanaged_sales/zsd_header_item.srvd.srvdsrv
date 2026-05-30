@@ -1,0 +1,6 @@
+@EndUserText.label: 'SD for header item'
+define service Zsd_header_item {
+  expose ziv_header;
+  expose ziv_item;
+  expose ziv_schd_item;
+}

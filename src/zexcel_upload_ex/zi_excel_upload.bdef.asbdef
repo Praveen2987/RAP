@@ -1,0 +1,27 @@
+unmanaged implementation in class zbp_i_excel_upload unique;
+strict ( 2 );
+with draft;
+
+
+//with draft;
+define behavior for zi_excel_upload alias excel
+//late numbering
+lock master total etag changed
+authorization master ( global )
+//authorization master ( instance )
+etag master changed
+draft table zdrft_excel
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Vbeln;
+  static action excel_upload deep parameter zexcel_abst_action;
+//result [1] $self;
+
+  draft action Edit;
+  draft action Resume;
+  draft action Activate;
+  draft action Discard;
+  draft determine action Prepare;
+}

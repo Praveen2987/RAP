@@ -1,0 +1,11 @@
+projection;
+strict ( 2 );
+
+define behavior for zc_excel_upload alias excel
+{
+  use create;
+  use update;
+  use delete;
+  use action excel_upload;
+
+}

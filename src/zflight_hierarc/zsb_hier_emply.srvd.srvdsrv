@@ -1,0 +1,4 @@
+@EndUserText.label: 'sd for hier emply'
+define service Zsb_hier_emply {
+  expose zc_emply_hier;
+}

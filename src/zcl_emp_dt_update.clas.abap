@@ -13,7 +13,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_emp_dt_update IMPLEMENTATION.
+CLASS ZCL_EMP_DT_UPDATE IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
 
@@ -30,7 +31,4 @@ CLASS zcl_emp_dt_update IMPLEMENTATION.
 
 
   ENDMETHOD.
-
-
-
 ENDCLASS.

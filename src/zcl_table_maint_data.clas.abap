@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_table_maint_data IMPLEMENTATION.
+CLASS ZCL_TABLE_MAINT_DATA IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

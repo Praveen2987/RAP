@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_sc_order_header IMPLEMENTATION.
+CLASS ZCL_SC_ORDER_HEADER IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

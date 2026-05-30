@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_bill_header_data IMPLEMENTATION.
+CLASS ZCL_BILL_HEADER_DATA IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

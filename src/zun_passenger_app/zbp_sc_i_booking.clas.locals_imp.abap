@@ -48,7 +48,6 @@ CLASS lhc_booking IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD create.
-
     DATA: lt_booking TYPE TABLE OF zbooking_hdr,
           ls_booking TYPE zbooking_hdr,
           rv_id      TYPE sysuuid_x16.

@@ -1,0 +1,6 @@
+@EndUserText.label: 'service definition for sales header'
+define service Zsd_so1_header {
+  expose zc_so1_header as header;
+  expose zc_so1_item   as item;
+  expose zc_so1_schd   as schd;
+}

@@ -13,8 +13,7 @@
     "name": "sample table for maintainence object",
     "transportObject": "ZSAMPLETABLEFORMAINTT",
     "configurationGroup": "",
-    "skipRootEntity": true,
-    "enableFileUpload": false
+    "skipRootEntity": true
   },
   "appConfiguration": {
     "listReport": {},

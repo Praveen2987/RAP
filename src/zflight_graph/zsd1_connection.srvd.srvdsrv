@@ -1,0 +1,5 @@
+@EndUserText.label: 'service definition for connection'
+define service Zsd1_connection {
+  expose zc_connection_flight;
+  expose zc_flight_connect;
+}

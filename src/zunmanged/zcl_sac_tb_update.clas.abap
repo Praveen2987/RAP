@@ -12,7 +12,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_sac_tb_update IMPLEMENTATION.
+CLASS ZCL_SAC_TB_UPDATE IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
     DATA lt_bill_header TYPE STANDARD TABLE OF ztb_sac_header.
@@ -31,7 +32,4 @@ CLASS zcl_sac_tb_update IMPLEMENTATION.
     out->write( 'Billing data is inserted' ).
 
   ENDMETHOD.
-
-
-
 ENDCLASS.

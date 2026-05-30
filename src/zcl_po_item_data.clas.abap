@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS zcl_po_item_data IMPLEMENTATION.
+CLASS ZCL_PO_ITEM_DATA IMPLEMENTATION.
 
 
   METHOD if_oo_adt_classrun~main.

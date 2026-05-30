@@ -1,0 +1,122 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: {
+    typeName: 'Excel Upload',
+    typeNamePlural: 'Excel Upload',
+    title: {
+        type: #STANDARD,
+        label: 'Excel Upload',
+        value: 'Vbeln'
+    }
+}
+
+
+annotate entity zc_excel_upload with
+{
+
+  @UI.facet: [{
+      id: 'Vbeln',
+      purpose: #STANDARD,
+      position: 10,
+      importance: #HIGH,
+      label: 'Excel Upload',
+      type: #IDENTIFICATION_REFERENCE
+  }]
+
+  @UI.lineItem: [
+  {  type: #FOR_ACTION, label: 'Upload Excel', dataAction: 'excel_upload' } ,
+  {  position: 10, importance: #HIGH, label: 'Sales order'  } ]
+
+  @UI.identification: [{
+      position: 10,
+      importance: #HIGH ,
+      type: #STANDARD,
+      label: 'Sales order'  }]
+
+  Vbeln;
+  @UI.lineItem :[
+  {  position: 20, importance: #HIGH, label: 'Item' } ]
+
+  @UI.identification: [{
+        position: 20,
+        importance: #HIGH ,
+        type: #STANDARD,
+        label: 'Item'  }]
+
+  Posnr;
+
+  @UI.lineItem :[
+  {  position: 30, importance: #HIGH, label: 'Material Num' } ]
+
+  @UI.identification: [{
+        position: 30,
+        importance: #HIGH ,
+        type: #STANDARD,
+        label: 'Material Num'  }]
+
+
+  MatNum;
+
+
+  @UI.lineItem :[
+  {  position: 40, importance: #HIGH, label: 'Material Desc' } ]
+
+  @UI.identification: [{
+        position: 40,
+        importance: #HIGH ,
+        type: #STANDARD,
+        label: 'Material Desc'  }]
+
+
+  MatDesc;
+
+
+  @UI.lineItem :[
+  {  position: 50, importance: #HIGH, label: 'Quantity' } ]
+
+  @UI.identification: [{
+        position: 50,
+        importance: #HIGH ,
+        type: #STANDARD,
+        label: 'Quantity'  }]
+
+
+  Quantity;
+
+  @UI.lineItem :[
+    {  position: 60, importance: #HIGH, label: 'Unit' } ]
+
+  @UI.identification: [{
+        position: 60,
+  //        importance: #HIGH ,
+  //        type: #STANDARD,
+        label: 'Unit'  }]
+
+
+  MatQuan;
+
+  @UI.lineItem :[
+  {  position: 70, label: 'Price' } ]
+
+  @UI.identification: [{
+        position: 70,
+  //        importance: #HIGH ,
+  //        type: #STANDARD,
+        label: 'Price'  }]
+
+
+  Amount;
+
+  @UI.lineItem :[
+  {  position: 80, label: 'Currency' } ]
+
+  @UI.identification: [{
+        position: 80,
+  //        importance: #HIGH ,
+  //        type: #STANDARD,
+        label: 'Currency'  }]
+
+
+  Currency;
+
+}

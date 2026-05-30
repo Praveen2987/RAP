@@ -1,0 +1,5 @@
+CLASS zbp_cds_bill_header DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcds_bill_header.
+ENDCLASS.
+
+CLASS zbp_cds_bill_header IMPLEMENTATION.
+ENDCLASS.

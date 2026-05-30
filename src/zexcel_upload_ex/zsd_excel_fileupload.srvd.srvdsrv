@@ -1,0 +1,4 @@
+@EndUserText.label: 'file upload'
+define service Zsd_excel_fileupload {
+  expose zc_excel_upload;
+}

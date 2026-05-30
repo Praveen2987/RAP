@@ -1,0 +1,15 @@
+managed implementation in class zbp_cds_bill_header unique;
+strict ( 2 );
+
+define behavior for ZCDS_BILL_HEADER //alias <alias_name>
+//persistent table zbill_header
+lock master
+authorization master ( instance )
+with unmanaged save
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) BillId;
+}
